@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao extends JpaRepository<DAOUser, Integer> {
     DAOUser findByUsername(String username);
+
+    DAOUser findById(long userId);
 }

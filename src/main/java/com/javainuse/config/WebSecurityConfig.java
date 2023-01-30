@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+	
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/api/book/", "/api/book/{id}", "/api/book/{id}").hasRole("ADMIN")
-				.antMatchers("/api/book/", "/api/book/id/{id}").hasAnyRole("USER", "ADMIN")
+				.antMatchers("/api/book/", "/api/book/id/{id}", "/api/books/{userId}/transactions").hasAnyRole("USER", "ADMIN")
 				.antMatchers("/login", "/register").permitAll().
 				anyRequest()
 				.authenticated().and().

@@ -16,7 +16,7 @@ public class DAOBook {
     private String title;
     @Column
     private String author;
-    @Column
+    @Column (columnDefinition = "Text")
     private String description;
     @Column
     private String cover;
